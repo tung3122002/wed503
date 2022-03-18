@@ -1,8 +1,9 @@
  import { Router } from 'express'
-const { list, get, create, remove, update } = require('../controllers/product');
-import { checkAuth } from '../middlewares/checkAuth';
+import { create, get, list, remove, update } from '../src/controllers/product';
+
+import { checkAuth } from '../src/middlewares/checkAuth';
 const router = Router();
-const product =[{id: 1, name: "Product A"}, {id: 2, name: "Product B"}];
+
 router.get("/product",checkAuth, list)
 router.post("/product",checkAuth,create)
 router.get("/product/:id",checkAuth,get)

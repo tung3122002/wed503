@@ -1,7 +1,7 @@
 import mongoose  from "mongoose";
 const Product = mongoose.model('Product', { name: String });
 
-
+const products =[{id: 1, name: "Product A"}, {id: 2, name: "Product B"}];
 
 
 export const list = (req, res) => { // get all

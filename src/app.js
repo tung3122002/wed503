@@ -1,40 +1,22 @@
-// const http = require('http');
-// const server = http.createServer((req, res)=>{
-//      console.log("url",req.url)
-//      const url = req.url
-//      if(url === '/product'){
-//         res.setHeader('Content-Type','application/json');
-//         const data = [{id: 1, name: "Product A"}, {id: 2, name: "Product B"}];
-//         res.end(JSON.stringify(data));
-//     } else if(url === "/posts"){
-//         res.setHeader('Content-Type','application/json');
-//         const data = [{id: 1, name: "Post A"}, {id: 2, name: "Post B"}];
-//         res.end(JSON.stringify(data));
-//     } else {
-//         res.setHeader('Content-Type','text/html');
-//         res.write("<html>");
-//         res.write("<body>");
-//             res.write("<h1>Home Pagqsjufdjksdfui</h1>")
-//         res.write("</body>");
-//         res.write("</html>");
-//         res.end();
-//     }
-//  })
+
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors";
+
 //connect database
+// app.use(cors())
 mongoose.connect("mongodb://localhost:27017/w16309")
  .then(()=>console.log("conect thành công"))
 const app = express();
-import productRouter from "./router/routerProduct";
+import productRouter from "../router/routerProduct";
 app.use(express.json());
 app.use("/api", productRouter);
-const PORT = 3002;
+const PORT = 8000;
 
 app.listen(PORT, () => {
   console.log(`Server running port ${PORT}`);
 });
 
 app.get("/", (req, res) => {
-  res.send("<h1>Home Pagqsjufdjksdfui</h1>");
+  res.send("<h1>Trần Ngọc Tùng</h1>");
 });
